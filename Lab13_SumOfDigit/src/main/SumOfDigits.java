@@ -34,15 +34,4 @@ public class SumOfDigits {
         return output.toString().trim();
     }
 
-    public static void main(String[] args) {
-        SumOfDigits sod = new SumOfDigits();
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        int inputNumber = scanner.nextInt();
-        scanner.close();
-
-        String result = sod.computeSumOfDigits(inputNumber);
-        System.out.println(result);
-    }
 }
