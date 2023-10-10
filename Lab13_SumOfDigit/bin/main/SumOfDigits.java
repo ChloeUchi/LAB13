@@ -12,16 +12,16 @@ public class SumOfDigits {
             String step = "";
             while (number > 0) {
                 int digit = number % 10;
-                sum += digit;      // Add the last digit to the sum
-                step = digit + " + " + step; // Build the step string
-                number /= 10;      // Remove the last digit from the number
+                sum += digit;      
+                step = digit + " + " + step; 
+                number /= 10;      
             }
             steps.add(step.substring(0, step.length() - 3) + " = " + sum);
             number = sum;
         }
         steps.add(Integer.toString(number));
         
-        // Display the steps
+        
         for (String step : steps) {
             System.out.println(step);
         }
