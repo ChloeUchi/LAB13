@@ -1,11 +1,17 @@
 package main;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class SumOfDigits {
-    public static int sumOfDigits(int number) {
+
+    private final String errorMessage = "ตัวเลขต้องมีสองหลัก";
+
+    public String computeSumOfDigits(int number) {
+        if (number < 10) {
+            return errorMessage;
+        }
+
         List<String> steps = new ArrayList<>();
         while (number >= 10) {
             int sum = 0;
@@ -21,21 +27,22 @@ public class SumOfDigits {
         }
         steps.add(Integer.toString(number));
         
-        
-        for (String step : steps) {
-            System.out.println(step);
+        StringBuilder output = new StringBuilder();
+        for (String s : steps) {
+            output.append(s).append("\n");
         }
-        
-        return number;
+        return output.toString().trim();
     }
 
     public static void main(String[] args) {
+        SumOfDigits sod = new SumOfDigits();
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a number: ");
         int inputNumber = scanner.nextInt();
         scanner.close();
 
-        int result = sumOfDigits(inputNumber);
-        System.out.println("Final result: " + result);
+        String result = sod.computeSumOfDigits(inputNumber);
+        System.out.println(result);
     }
 }
